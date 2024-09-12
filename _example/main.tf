@@ -1,18 +1,17 @@
 provider "azurerm" {
+  subscription_id = "e732de0d-fe16-4e8e-b86d-758327e0145c"
   features {}
 }
 
 module "resource_group" {
-  source      = "SyncArcs/resource-group/azure"
-  version     = "1.0.5"
+  source      = "git::https://github.com/SyncArcs/terraform-azure-resource-group.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   location    = "North Europe"
 }
 
 module "vnet" {
-  source              = "SyncArcs/vnet/azure"
-  version             = "1.0.4"
+  source              = "git::https://github.com/SyncArcs/terraform-azure-vnet.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   resource_group_name = module.resource_group.resource_group_name
@@ -21,8 +20,7 @@ module "vnet" {
 }
 
 module "subnet" {
-  source               = "SyncArcs/subnet/azure"
-  version              = "1.0.2"
+  source               = "git::https://github.com/SyncArcs/terraform-azure-subnet.git?ref=v1.0.0"
   name                 = "app"
   environment          = "test"
   resource_group_name  = module.resource_group.resource_group_name

@@ -1,6 +1,5 @@
 module "labels" {
-  source      = "SyncArcs/labels/azure"
-  version     = "1.0.4"
+  source      = "git::https://github.com/SyncArcs/terraform-azure-labels.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby

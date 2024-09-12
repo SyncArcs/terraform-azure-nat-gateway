@@ -23,8 +23,7 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 ```hcl
 module "nat_gateway" {
   depends_on          = [module.resource_group, module.vnet]
-  source              = "SyncArcs/nat-gateway/azure"
-  version             = "1.0.0"
+  source              = "git::https://github.com/SyncArcs/terraform-azure-nat-gateway.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   location            = module.resource_group.resource_group_location
@@ -62,7 +61,7 @@ Replace **MIT** and **SyncArcs** with the appropriate license and your informati
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | SyncArcs/labels/azure | 1.0.4 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/SyncArcs/terraform-azure-labels.git | v1.0.0 |
 
 ## Resources
 
